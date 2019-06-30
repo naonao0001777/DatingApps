@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "登録画面";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div>
+    @using (Html.BeginForm("About", "Home", null, FormMethod.Post))
+    {
+        <p>
+            @Html.TextBox("id", "", new { maxlength = 25 })
+
+        </p>
+        <p>
+            <button type="submit" class="btn btn-default">sine up</button>
+        </p>
+    }
+</div>

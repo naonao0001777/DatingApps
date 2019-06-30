@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>マッチングサイト</h2>
+    <p class="lead">ログイン画面</p>
+    @using (Html.BeginForm("UserPage", "Home", FormMethod.Post))
+    {
+        <div>
+            <p>ID</p>
+            <p>@Html.TextBox("id", "", new { maxlength = 20 })</p>
+            <p>password</p>
+            <p>@Html.Password("password", "")</p>
+        </div>
+        <p><button type="submit" class="btn btn-primary btn-lg">Login &raquo;</button></p>
+    }
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>まだ登録が済んでいない方</h4>
+        @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+        {
+            <p>
+                <button type="submit" class="btn btn-default">sine up</button>
+            </p>
+        }
+    </div>
+    @*<div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">登録 &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">退会 &raquo;</a></p>
+        </div>*@
+</div>
