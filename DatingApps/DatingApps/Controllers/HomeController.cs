@@ -10,6 +10,7 @@ namespace DatingApps.Controllers
     {
         public ActionResult Index()
         {
+            
             return View();
         }
 
@@ -27,8 +28,10 @@ namespace DatingApps.Controllers
             return View();
         }
 
-        public ActionResult UserPage()
+        [HttpPost]
+        public ActionResult UserPage(string id, string password)
         {
+            ViewData["id"] = id + "を受け取った";
             return View();
         }
     }
