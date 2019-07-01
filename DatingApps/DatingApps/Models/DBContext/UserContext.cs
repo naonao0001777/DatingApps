@@ -12,8 +12,12 @@
         // 
         // 別のデータベースとデータベース プロバイダーまたはそのいずれかを対象とする場合は、
         // アプリケーション構成ファイルで 'Model1' 接続文字列を変更してください。
-        public DbSet <User> User { get; set; }
+        public UserContext() : base("DatingApps")
+        {
 
+        }
+
+        public DbSet <User> User { get; set; }
         // モデルに含めるエンティティ型ごとに DbSet を追加します。Code First モデルの構成および使用の
         // 詳細については、http://go.microsoft.com/fwlink/?LinkId=390109 を参照してください。
 

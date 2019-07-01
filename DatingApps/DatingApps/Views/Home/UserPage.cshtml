@@ -2,7 +2,16 @@
 @{
     ViewBag.Title = "UserPage";
 }
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <h2>プロフィール</h2>
+    <div>
+        @Html.Encode(ViewData["id"])
+    </div>
+</body>
 
-<h2>プロフィール</h2>
 
 

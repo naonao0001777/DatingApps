@@ -160,7 +160,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DBContext\UserContext.cs" />
-    <Compile Include="Models\Entity\User.cs" />
+    <Compile Include="Models\Identity\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
