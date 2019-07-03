@@ -1,4 +1,4 @@
-﻿
+﻿@model DatingApps.Models.User
 @{
     ViewBag.Title = "UserPage";
 }
@@ -9,7 +9,22 @@
 <body>
     <h2>プロフィール</h2>
     <div>
-        @Html.Encode(ViewData["id"])
+        <div>
+            @Html.Encode(ViewData["id"])
+        </div>
+        <div>
+            <p>@Html.DisplayTextFor(m => Model.Sex);</p>
+            <p>@Html.EditorFor(m => Model.Name);<>
+        </div>
+        <div>
+            @Html.EditorFor(m => Model.BirthDay);
+        </div>
+        <div>
+            @Html.TextAreaFor(m => Model.Comment);
+        </div>
+    </div>
+    <div>
+        <button type="button" onclick= @Url.Action("Search","Home")>探す</button>
     </div>
 </body>
 

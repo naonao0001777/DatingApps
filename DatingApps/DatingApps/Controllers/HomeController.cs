@@ -39,15 +39,26 @@ namespace DatingApps.Controllers
             con.Open();
             try
             {
-                string sqlStr = "select*from User";
+                // UserMasterから取得するクエリを取得
+                string sqlStr = ConfigurationManager.ConnectionStrings["GetUserInfo"].ConnectionString;
                 SqlCommand sqlCommand = new SqlCommand(sqlStr, con);
-                SqlDataReader sdr = sqlCommand.ExecuteReader();
-                while (sdr.Read())
+                SqlDataReader dtReader = sqlCommand.ExecuteReader();
+                while (dtReader.Read())
                 {
-                    
-                    if (id == sdr["id"].ToString())
+                    // idとpasswordが一致していた場合はプロフィール画面へ遷移
+                    if (id == dtReader["id"].ToString() && password == dtReader["password"].ToString())
                     {
+                        User user = new User();
+                        user.Id = dtReader["id"].ToString();
+                        user.Name = dtReader["name"].ToString();
+                        user.Sex = dtReader["sex"].ToString();
+                        user.BirthDay = dtReader["birthday"].ToString();
+                        user.Comment = dtReader["comment"].ToString();
+                        
+
                         ViewData["id"] = id + "を受け取った";
+                        return View(user);
+                       
                     }
                 }
             }
