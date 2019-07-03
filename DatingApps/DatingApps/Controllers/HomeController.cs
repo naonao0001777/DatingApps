@@ -40,8 +40,8 @@ namespace DatingApps.Controllers
             try
             {
                 // UserMasterから取得するクエリを取得
-                string sqlStr = ConfigurationManager.ConnectionStrings["GetUserInfo"].ConnectionString;
-                SqlCommand sqlCommand = new SqlCommand(sqlStr, con);
+                string getUser = ConfigurationManager.AppSettings["GetUserInfo"];
+                SqlCommand sqlCommand = new SqlCommand(getUser, con);
                 SqlDataReader dtReader = sqlCommand.ExecuteReader();
                 while (dtReader.Read())
                 {
