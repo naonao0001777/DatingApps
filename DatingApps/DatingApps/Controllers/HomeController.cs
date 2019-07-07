@@ -31,6 +31,12 @@ namespace DatingApps.Controllers
             return View();
         }
 
+        /// <summary>
+        /// ユーザーページ
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult UserPage(string id, string password)
         {
@@ -78,6 +84,17 @@ namespace DatingApps.Controllers
             //{
             //    ViewData["id"] = id + "を受け取った";
             //}
+
+            return View();
+        }
+
+        /// <summary>
+        /// サーチ画面
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Search()
+        {
 
             return View();
         }
