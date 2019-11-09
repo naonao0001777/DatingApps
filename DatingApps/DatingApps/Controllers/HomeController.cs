@@ -40,11 +40,14 @@ namespace DatingApps.Controllers
         [HttpPost]
         public ActionResult UserPage(string id, string password)
         {
-            string conStr = ConfigurationManager.ConnectionStrings["DatingApps"].ConnectionString;
-            SqlConnection con = new SqlConnection(conStr);
-            con.Open();
+            SqlConnection con = null;
+            bool errFlg = false;
             try
             {
+                string conStr = ConfigurationManager.ConnectionStrings["DatingApps"].ConnectionString;
+                con = new SqlConnection(conStr);
+                con.Open();
+            
                 // UserMasterから取得するクエリを取得
                 string getUser = ConfigurationManager.AppSettings["GetUserInfo"];
                 SqlCommand sqlCommand = new SqlCommand(getUser, con);
@@ -68,9 +71,11 @@ namespace DatingApps.Controllers
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-             
+                string errorMessage = e.Message;
+                Console.WriteLine(errorMessage);
+                errFlg = true;
             }
             finally
             {
@@ -84,7 +89,10 @@ namespace DatingApps.Controllers
             //{
             //    ViewData["id"] = id + "を受け取った";
             //}
-
+            if (errFlg)
+            {
+                return View("Contact");
+            }
             return View();
         }
 
